@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 
 namespace FightSim2
 {
@@ -10,12 +12,15 @@ namespace FightSim2
 
         static Random rng = new Random();
 
-        public Weapon weapon = new Weapon();
+        public Weapon weapon = new Gun();
+
+        public List<Weapon> weapons = new List<Weapon>();
 
         public Fighter()
         {
             hp = rng.Next(80, 100);
             SetName();
+            weapons.Add(new Gun());
         }
 
         public void SetName()
@@ -36,10 +41,12 @@ namespace FightSim2
 
         public void Attack(Fighter opponent)
         {
-            Console.WriteLine($"\n{name} swings his sword at {opponent.GetName()}");
-            opponent.hp -= weapon.Attack();
+            weapons[0].Attack(opponent);
 
-            opponent.hp = Math.Max(opponent.hp, 0);
+            Console.WriteLine($"\n{name} swings his sword at {opponent.GetName()}");
+            // opponent.hp -= weapon.Attack();
+
+            // opponent.hp = Math.Max(opponent.hp, 0);
         }
     }
 }

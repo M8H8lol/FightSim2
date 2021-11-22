@@ -6,6 +6,8 @@ namespace FightSim2
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the snowy fighting game");
+
             Console.WriteLine("f1:");
             Fighter f1 = new Fighter();
             Console.WriteLine("f2:");

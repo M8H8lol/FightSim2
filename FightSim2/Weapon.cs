@@ -4,8 +4,9 @@ namespace FightSim2
 {
     public class Weapon
     {
+        public string name;
         static Random rng = new Random();
-        public int Attack()
+        public virtual void Attack(Fighter target)
         {
             int dmg;
 
@@ -13,13 +14,15 @@ namespace FightSim2
             {
                 dmg = rng.Next(15, 25);
                 Console.WriteLine($"{dmg} DMG : CRITCAL HIT!");
-                return dmg;
+                target.hp -= dmg;
             }
+            else
+            {
+                dmg = rng.Next(5, 10);
+                Console.WriteLine($"{dmg} DMG : Normal attack \n");
 
-            dmg = rng.Next(5, 10);
-            Console.WriteLine($"{dmg} DMG : Normal attack \n");
-
-            return dmg;
+                target.hp -= dmg;
+            }
         }
     }
 }
