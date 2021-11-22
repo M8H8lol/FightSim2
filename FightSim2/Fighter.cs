@@ -21,6 +21,7 @@ namespace FightSim2
             hp = rng.Next(80, 100);
             SetName();
             weapons.Add(new Gun());
+            weapons.Add(new Sword());
         }
 
         public void SetName()
@@ -41,9 +42,22 @@ namespace FightSim2
 
         public void Attack(Fighter opponent)
         {
-            weapons[0].Attack(opponent);
+            int i = -1;
 
-            Console.WriteLine($"\n{name} swings his sword at {opponent.GetName()}");
+            Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2]");
+
+            while (i < 0 || i >= weapons.Count)
+            {
+                string whatWeapon = Console.ReadLine();
+                int.TryParse(whatWeapon, out i);
+                i--;
+            }
+
+
+
+            weapons[i].Attack(opponent);
+
+            Console.WriteLine($"\n{name} draws his {weapons[i].name} at {opponent.GetName()}");
             // opponent.hp -= weapon.Attack();
 
             // opponent.hp = Math.Max(opponent.hp, 0);
