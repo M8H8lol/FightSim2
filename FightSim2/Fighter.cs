@@ -6,11 +6,14 @@ namespace FightSim2
 {
     public class Fighter
     {
-        string name;
+
+        // Ser till att allt är antingen protected eller public så att dem kan användas i Opponent
+
+        protected string name;
 
         public int hp;
 
-        static Random rng = new Random();
+        protected static Random rng = new Random();
 
         public Weapon weapon = new Gun();
 
@@ -40,27 +43,31 @@ namespace FightSim2
 
         }
 
-        public void Attack(Fighter opponent)
+        public virtual void Attack(Fighter opponent)
         {
             int i = -1;
 
             Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2]");
 
+
+            // Den här while loopen kollar vilket vapen som spelaren väljer att använda och ser till att valet är giltigt. Har dessutom gjort det så att om spelaren väljer att skriva "2", då ska programmet läsa av det som "1" eftersom att listor börjar med 0 men jag vill att vapenalternativen ska vara 1 och 2 istället för 0 och 1. 
+
             while (i < 0 || i >= weapons.Count)
             {
                 string whatWeapon = Console.ReadLine();
-                int.TryParse(whatWeapon, out i);
+                bool success = int.TryParse(whatWeapon, out i);
+                if (success == false)
+                {
+                    Console.WriteLine("Nej skriv en siffra, dummer!");
+                }
                 i--;
             }
 
-
+            // Attackmeddelande
 
             weapons[i].Attack(opponent);
 
             Console.WriteLine($"\n{name} draws his {weapons[i].name} at {opponent.GetName()}");
-            // opponent.hp -= weapon.Attack();
-
-            // opponent.hp = Math.Max(opponent.hp, 0);
         }
     }
 }

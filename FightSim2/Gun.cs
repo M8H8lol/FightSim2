@@ -8,10 +8,10 @@ namespace FightSim2
         public Gun()
         {
             name = "Gun";
-        }
-        public override void Attack(Fighter target)
-        {
-            target.hp -= 100;
+            minDamage = 15;
+            maxDamage = 20;
+            minCritDamage = 25;
+            maxCritDamage = 35;
         }
     }
 }
