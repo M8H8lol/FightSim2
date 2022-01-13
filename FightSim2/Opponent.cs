@@ -9,10 +9,9 @@ namespace FightSim2
     public class Opponent : Fighter
     {
 
-
-        public override void Attack(Fighter target)
+        protected override int ChooseWeapon()
         {
-            weapons[0].Attack(target);
+            return rng.Next(weapons.Count);
         }
     }
 }

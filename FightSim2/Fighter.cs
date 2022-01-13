@@ -23,8 +23,8 @@ namespace FightSim2
         {
             hp = rng.Next(80, 100);
             SetName();
-            weapons.Add(new Gun());
             weapons.Add(new Sword());
+            weapons.Add(new Gun());
         }
 
         public void SetName()
@@ -43,8 +43,9 @@ namespace FightSim2
 
         }
 
-        public virtual void Attack(Fighter opponent)
+        protected virtual int ChooseWeapon()
         {
+
             int weaponChoice = -1;
 
             Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2]");
@@ -63,11 +64,18 @@ namespace FightSim2
                 weaponChoice--;
             }
 
+            return weaponChoice;
+        }
+
+        public void Attack(Fighter target)
+        {
             // Attackmeddelande
 
-            weapons[weaponChoice].Attack(opponent);
+            int weaponChoice = ChooseWeapon();
 
-            Console.WriteLine($"\n{name} draws his {weapons[weaponChoice].name} at {opponent.GetName()}");
+            weapons[weaponChoice].Attack(target);
+
+            Console.WriteLine($"\n{name} draws his {weapons[weaponChoice].name} at {target.GetName()}");
         }
     }
 }
