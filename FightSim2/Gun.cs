@@ -12,6 +12,8 @@ namespace FightSim2
             maxDamage = 20;
             minCritDamage = 25;
             maxCritDamage = 35;
+
+            noDamage = 0;
         }
     }
 }

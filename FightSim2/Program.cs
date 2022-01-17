@@ -34,14 +34,24 @@ namespace FightSim2
                 // En while loop som ser till att den fortsätter fråga sålänge spelarnas hp är över 0 och att spelaren inte tackar nej till nästa runda
                 if (f1.hp > 0 && f2.hp > 0)
                 {
-
-                    Console.WriteLine("Next round? (y/n)");
-
-                    string nextRound = Console.ReadLine().ToLower();
-
-                    if (nextRound == "n" || nextRound == "no" || nextRound == "N")
+                    string nextRound = "i";
+                    while (nextRound[0] != 'n' && nextRound[0] != 'y')
                     {
-                        killGame = true;
+
+                        Console.WriteLine("Next round? (y/n)");
+
+                        nextRound = Console.ReadLine().ToLower();
+
+
+                        if (nextRound[0] == 'n')
+                        {
+                            killGame = true;
+                        }
+                        else if (nextRound[0] != 'y')
+                        {
+                            Console.WriteLine("Yes or no idiot \n");
+                            // Console.WriteLine("Next round? (y/n)");
+                        }
                     }
                 }
             }
@@ -59,6 +69,7 @@ namespace FightSim2
             else if (f1.hp <= 0)
             {
                 Console.WriteLine($"Champion {f2.GetName()} won!");
+
             }
             else
             {

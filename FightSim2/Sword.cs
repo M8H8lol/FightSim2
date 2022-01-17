@@ -11,11 +11,8 @@ namespace FightSim2
             maxDamage = 15;
             minCritDamage = 20;
             maxCritDamage = 30;
-        }
 
-        // public override void Attack(Fighter target)
-        // {
-        //     target.hp -= 50;
-        // }
+            noDamage = 0;
+        }
     }
 }

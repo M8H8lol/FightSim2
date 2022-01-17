@@ -15,17 +15,24 @@ namespace FightSim2
         protected int minCritDamage = 0;
         protected int maxCritDamage = 0;
 
+        protected int noDamage = 0;
+
 
 
         public void Attack(Fighter target)
         {
             int dmg;
 
-            if (rng.Next(1, 21) == 20)
+            if (rng.Next(1, 11) == 10)
             {
                 dmg = rng.Next(minCritDamage, maxCritDamage);
                 Console.WriteLine($"{dmg} DMG : CRITCAL HIT!");
                 target.hp -= dmg;
+            }
+            else if (rng.Next(1, 11) == 9)
+            {
+                dmg = rng.Next(noDamage);
+                Console.WriteLine($"{dmg} DMG : You missed!");
             }
             else
             {

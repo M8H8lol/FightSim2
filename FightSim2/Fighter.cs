@@ -73,9 +73,9 @@ namespace FightSim2
 
             int weaponChoice = ChooseWeapon();
 
-            weapons[weaponChoice].Attack(target);
-
             Console.WriteLine($"\n{name} draws his {weapons[weaponChoice].name} at {target.GetName()}");
+
+            weapons[weaponChoice].Attack(target);
         }
     }
 }
