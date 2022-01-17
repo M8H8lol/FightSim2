@@ -8,10 +8,10 @@ namespace FightSim2
         public Gun()
         {
             name = "Gun";
-            minDamage = 15;
-            maxDamage = 20;
-            minCritDamage = 25;
-            maxCritDamage = 35;
+            minDamage = 10;
+            maxDamage = 15;
+            minCritDamage = 15;
+            maxCritDamage = 20;
 
             noDamage = 0;
         }

@@ -26,18 +26,18 @@ namespace FightSim2
             if (rng.Next(1, 11) == 10)
             {
                 dmg = rng.Next(minCritDamage, maxCritDamage);
-                Console.WriteLine($"{dmg} DMG : CRITCAL HIT!");
+                Console.WriteLine($"CRITCAL HIT! : {dmg} DMG \n");
                 target.hp -= dmg;
             }
             else if (rng.Next(1, 11) == 9)
             {
                 dmg = rng.Next(noDamage);
-                Console.WriteLine($"{dmg} DMG : You missed!");
+                Console.WriteLine($"You missed! : {dmg} DMG \n");
             }
             else
             {
                 dmg = rng.Next(minDamage, maxDamage);
-                Console.WriteLine($"{dmg} DMG : Normal attack \n");
+                Console.WriteLine($"Normal attack : {dmg} DMG \n");
 
                 target.hp -= dmg;
             }

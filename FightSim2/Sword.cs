@@ -7,10 +7,10 @@ namespace FightSim2
         public Sword()
         {
             name = "Sword";
-            minDamage = 10;
-            maxDamage = 15;
+            minDamage = 5;
+            maxDamage = 10;
             minCritDamage = 20;
-            maxCritDamage = 30;
+            maxCritDamage = 25;
 
             noDamage = 0;
         }

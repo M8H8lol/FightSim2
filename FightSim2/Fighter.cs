@@ -21,7 +21,7 @@ namespace FightSim2
 
         public Fighter()
         {
-            hp = rng.Next(80, 100);
+            hp = rng.Next(85, 95);
             SetName();
             weapons.Add(new Sword());
             weapons.Add(new Gun());
