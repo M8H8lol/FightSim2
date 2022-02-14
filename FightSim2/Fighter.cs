@@ -48,7 +48,7 @@ namespace FightSim2
 
             int weaponChoice = -1;
 
-            Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2]");
+            Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2])");
 
 
             // Den här while loopen kollar vilket vapen som spelaren väljer att använda och ser till att valet är giltigt. Har dessutom gjort det så att om spelaren väljer att skriva "2", då ska programmet läsa av det som "1" eftersom att listor börjar med 0 men jag vill att vapenalternativen ska vara 1 och 2 istället för 0 och 1. 
@@ -59,7 +59,8 @@ namespace FightSim2
                 bool success = int.TryParse(whatWeapon, out weaponChoice);
                 if (success == false)
                 {
-                    Console.WriteLine("Nej skriv en siffra, dummer!");
+                    Console.WriteLine("Nej skriv en siffra, dummer!\n");
+                    Console.WriteLine("(Sword [1] || Gun [2])");
                 }
                 weaponChoice--;
             }

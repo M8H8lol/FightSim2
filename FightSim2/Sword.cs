@@ -2,7 +2,7 @@ using System;
 
 namespace FightSim2
 {
-    public class Sword : Weapon
+    public class Sword : Weapon 
     {
         public Sword()
         {
