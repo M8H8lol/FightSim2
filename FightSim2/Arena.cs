@@ -24,6 +24,7 @@ namespace FightSim2
                 // En while loop som ser till att den fortsätter fråga sålänge spelarnas hp är över 0 och att spelaren inte tackar nej till nästa runda
                 killGame = NextRound(f1, f2);
             }
+            CheckWinner(f1, f2, false);
         }
 
         public bool NextRound(Fighter f1, Fighter f2)

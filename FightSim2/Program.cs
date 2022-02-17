@@ -18,6 +18,7 @@ namespace FightSim2
 
 
             arena.Fight(f1, f2);
+
         }
     }
 }
