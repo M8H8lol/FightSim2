@@ -4,7 +4,18 @@ namespace FightSim2
 {
     public class Arena
     {
-        public void Fight(Fighter f1, Fighter f2)
+
+        private Fighter f1, f2;
+
+
+        // Creating the fighters inside of Arena so I don't have to refer to them everytime I want to use it in Arena. 
+        public void SetFighters(Fighter one, Fighter two)
+        {
+            f1 = one;
+            f2 = two;
+        }
+
+        public void Fight()
         {
 
             // Sätter en killGame bool till false från början så att jag kan göra det till true när jag vill att spelet ska avslutas
@@ -13,6 +24,7 @@ namespace FightSim2
             Console.WriteLine($"{f1.GetName()} ({f1.hp} HP) VS {f2.GetName()} ({f2.hp} HP)");
 
             Console.WriteLine("ARE YOU READY TO FIGHT?!");
+
             // En while loop som ser till att spelet tar slut om en av karaktärernas [HP] går under 0
             while (f1.hp > 0 && f2.hp > 0 && killGame == false)
             {
@@ -22,18 +34,20 @@ namespace FightSim2
                 Console.WriteLine($"{f1.GetName()} has {f1.hp} HP || {f2.GetName()} has {f2.hp} HP");
 
                 // En while loop som ser till att den fortsätter fråga sålänge spelarnas hp är över 0 och att spelaren inte tackar nej till nästa runda
-                killGame = NextRound(f1, f2);
+                killGame = NextRound();
             }
             CheckWinner(f1, f2, false);
         }
 
-        public bool NextRound(Fighter f1, Fighter f2)
+        // Gör en metod som kollar om det är true eller false att fighters hp är över noll så att spelet kan fortsätta. 
+        public bool NextRound()
         {
             bool killG = true;
             if (f1.hp > 0 && f2.hp > 0)
             {
                 ConsoleKey inputKey = ConsoleKey.K;
-                // string nextRound = "i";
+
+                // Creating a while loop that reads the input that the user wrote regarding if they want to continue figthing or not and making it clear from the console so the console looks more clean. 
                 while (inputKey != ConsoleKey.Y && inputKey != ConsoleKey.N)
                 {
                     Console.WriteLine("Next round? (y/n)");
@@ -84,6 +98,8 @@ namespace FightSim2
         //     return killG;
         // }
 
+
+        // A method that takes the winner of the fight and writes a victory message, or if its a  draw (if both fighters get equal or below 0 on the same hit)
         public void CheckWinner(Fighter f1, Fighter f2, bool killGame)
         {
             // Printar ut meddelanden beroende på vad spelaren väljer att göra eller om en av krigarna dör

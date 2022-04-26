@@ -5,6 +5,7 @@ namespace FightSim2
     public class Gun : Weapon
     {
 
+        // Giving Gun its own damage values that was inherited from the values from Weapon
         public Gun()
         {
             name = "Gun";

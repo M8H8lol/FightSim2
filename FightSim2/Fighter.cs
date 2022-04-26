@@ -7,7 +7,6 @@ namespace FightSim2
     public class Fighter
     {
 
-        // Ser till att allt är antingen protected eller public så att dem kan användas i Opponent
 
         protected string name;
 
@@ -15,40 +14,53 @@ namespace FightSim2
 
         protected static Random rng = new Random();
 
-        public Weapon weapon = new Gun();
+        public Weapon weapon = new Rifle();
 
         public List<Weapon> weapons = new List<Weapon>();
 
+
+        //Creating the fighters, giving them a name depending on the users input and randomizing their HealthPoints (HP) from between 85 and 95 as well as giving them weapons
         public Fighter()
         {
             hp = rng.Next(85, 95);
             SetName();
-            weapons.Add(new Sword());
-            weapons.Add(new Gun());
+            weapons.Add(new Longsword());
+            weapons.Add(new Rifle());
         }
 
+
+        // Giving each of the fighters a name that the user chooses and makes sure they can not write any invalid inputs
         public void SetName()
         {
-            Console.WriteLine("Whats your name!");
-            name = Console.ReadLine();
+            while (true)
+            {
+                Console.WriteLine("Whats your name!");
+                name = Console.ReadLine().Trim();
+                if (string.IsNullOrEmpty(name))
+                {
+                    Console.WriteLine("Invalid name");
+                    Console.WriteLine("Please enter a name that contain letters");
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
+        //Creating a method that returns name so I can call it when I want to use their name in my code 
         public string GetName()
         {
             return name;
         }
 
-        public void SetHP()
-        {
-
-        }
-
+        // Creating a virtual int method that does the necessary calculations to give the user the weapon they chose
         protected virtual int ChooseWeapon()
         {
 
             int weaponChoice = -1;
 
-            Console.WriteLine("Which weapon would you like to draw on your opponent? (Sword [1] || Gun [2])");
+            Console.WriteLine("Which weapon would you like to draw on your opponent? (Longsword [1] || Rifle [2])");
 
 
             // Den här while loopen kollar vilket vapen som spelaren väljer att använda och ser till att valet är giltigt. Har dessutom gjort det så att om spelaren väljer att skriva "2", då ska programmet läsa av det som "1" eftersom att listor börjar med 0 men jag vill att vapenalternativen ska vara 1 och 2 istället för 0 och 1. 
@@ -68,6 +80,7 @@ namespace FightSim2
             return weaponChoice;
         }
 
+        // This method is used to let the user hit the other fighter with their choice of weapons. 
         public void Attack(Fighter target)
         {
             // Attackmeddelande

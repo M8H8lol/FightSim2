@@ -9,6 +9,8 @@ namespace FightSim2
     public class Opponent : Fighter
     {
 
+
+        // Randomizing the weapon that the opponent will choose
         protected override int ChooseWeapon()
         {
             return rng.Next(weapons.Count);

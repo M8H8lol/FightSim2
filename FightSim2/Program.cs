@@ -6,6 +6,9 @@ namespace FightSim2
     {
         static void Main(string[] args)
         {
+            // Tried to kept Program.cs as clean and small as possible
+
+
             Console.WriteLine("Welcome to the winter fighting simulator");
 
             // Skapar två fighters som användaren får välja namnet på
@@ -16,8 +19,9 @@ namespace FightSim2
 
             Arena arena = new Arena();
 
+            arena.SetFighters(f1, f2);
 
-            arena.Fight(f1, f2);
+            arena.Fight();
 
         }
     }
