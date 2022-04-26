@@ -18,11 +18,12 @@ namespace FightSim2
         protected int noDamage = 0;
 
 
-
+        // Creating an attack method for the fighters to use towards their target
         public void Attack(Fighter target)
         {
             int dmg;
 
+            // Randomizing if the hit they strike their opponent with does a critical hit, resukting in extra damage. Also randomizing the chance of the hit missing, resulting in 0 damage. 
             if (rng.Next(1, 11) == 10)
             {
                 dmg = rng.Next(minCritDamage, maxCritDamage);
@@ -34,6 +35,7 @@ namespace FightSim2
                 dmg = rng.Next(noDamage);
                 Console.WriteLine($"You missed! : {dmg} DMG \n");
             }
+            // And if the hit does not critical strike nor miss, then it will do normal damage and take away hp from the target. 
             else
             {
                 dmg = rng.Next(minDamage, maxDamage);
