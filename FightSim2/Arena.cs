@@ -39,6 +39,8 @@ namespace FightSim2
             CheckWinner(f1, f2, false);
         }
 
+
+
         // Gör en metod som kollar om det är true eller false att fighters hp är över noll så att spelet kan fortsätta. 
         public bool NextRound()
         {
