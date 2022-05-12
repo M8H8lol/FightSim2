@@ -10,19 +10,46 @@ namespace FightSim2
 
         protected string name;
 
-        public int hp;
+        // public int Hp { get; set; }
+
+        private int hp;
+
+        public int Hp
+        {
+            get
+            {
+                return hp;
+            }
+            set
+            {
+                hp = value;
+                if (hp < 0) hp = 0;
+            }
+        }
+
+
 
         protected static Random rng = new Random();
 
-        public Weapon weapon = new Rifle();
+        private List<Weapon> weapons = new List<Weapon>();
 
-        public List<Weapon> weapons = new List<Weapon>();
+        public List<Weapon> Weapons
+        {
+            get
+            {
+                return weapons;
+            }
+            set
+            {
+                weapons = value;
+            }
+        }
 
 
         //Creating the fighters, giving them a name depending on the users input and randomizing their HealthPoints (HP) from between 85 and 95 as well as giving them weapons
         public Fighter()
         {
-            hp = rng.Next(85, 95);
+            Hp = rng.Next(85, 95);
             SetName();
             weapons.Add(new Longsword());
             weapons.Add(new Rifle());
@@ -87,7 +114,7 @@ namespace FightSim2
 
             int weaponChoice = ChooseWeapon();
 
-            Console.WriteLine($"\n{name} draws his {weapons[weaponChoice].name} at {target.GetName()}");
+            Console.WriteLine($"\n{name} draws his {weapons[weaponChoice].Name} at {target.GetName()}");
 
             weapons[weaponChoice].Attack(target);
         }

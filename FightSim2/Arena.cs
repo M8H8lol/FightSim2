@@ -18,20 +18,21 @@ namespace FightSim2
         public void Fight()
         {
 
+
             // Sätter en killGame bool till false från början så att jag kan göra det till true när jag vill att spelet ska avslutas
             bool killGame = false;
 
-            Console.WriteLine($"{f1.GetName()} ({f1.hp} HP) VS {f2.GetName()} ({f2.hp} HP)");
+            Console.WriteLine($"{f1.GetName()} ({f1.Hp} HP) VS {f2.GetName()} ({f2.Hp} HP)");
 
             Console.WriteLine("ARE YOU READY TO FIGHT?!");
 
             // En while loop som ser till att spelet tar slut om en av karaktärernas [HP] går under 0
-            while (f1.hp > 0 && f2.hp > 0 && killGame == false)
+            while (f1.Hp > 0 && f2.Hp > 0 && killGame == false)
             {
                 f1.Attack(f2);
                 f2.Attack(f1);
 
-                Console.WriteLine($"{f1.GetName()} has {f1.hp} HP || {f2.GetName()} has {f2.hp} HP");
+                Console.WriteLine($"{f1.GetName()} has {f1.Hp} HP || {f2.GetName()} has {f2.Hp} HP");
 
                 // En while loop som ser till att den fortsätter fråga sålänge spelarnas hp är över 0 och att spelaren inte tackar nej till nästa runda
                 killGame = NextRound();
@@ -45,7 +46,7 @@ namespace FightSim2
         public bool NextRound()
         {
             bool killG = true;
-            if (f1.hp > 0 && f2.hp > 0)
+            if (f1.Hp > 0 && f2.Hp > 0)
             {
                 ConsoleKey inputKey = ConsoleKey.K;
 
@@ -109,11 +110,11 @@ namespace FightSim2
             {
                 Console.WriteLine("Cowards like you have no room here!");
             }
-            else if (f1.hp <= 0 && f2.hp <= 0)
+            else if (f1.Hp <= 0 && f2.Hp <= 0)
             {
                 Console.WriteLine("DRAW!");
             }
-            else if (f1.hp <= 0)
+            else if (f1.Hp <= 0)
             {
                 Console.WriteLine($"Champion {f2.GetName()} won!");
 

@@ -13,7 +13,7 @@ namespace FightSim2
         // Randomizing the weapon that the opponent will choose
         protected override int ChooseWeapon()
         {
-            return rng.Next(weapons.Count);
+            return rng.Next(Weapons.Count);
         }
     }
 }

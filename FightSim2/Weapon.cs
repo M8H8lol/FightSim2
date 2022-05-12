@@ -4,7 +4,21 @@ namespace FightSim2
 {
     public class Weapon
     {
-        public string name;
+        private string name;
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+            }
+        }
+
+
         static Random rng = new Random();
 
 
@@ -28,7 +42,7 @@ namespace FightSim2
             {
                 dmg = rng.Next(minCritDamage, maxCritDamage);
                 Console.WriteLine($"CRITCAL HIT! : {dmg} DMG \n");
-                target.hp -= dmg;
+                target.Hp -= dmg;
             }
             else if (rng.Next(1, 11) == 9)
             {
@@ -41,7 +55,7 @@ namespace FightSim2
                 dmg = rng.Next(minDamage, maxDamage);
                 Console.WriteLine($"Normal attack : {dmg} DMG \n");
 
-                target.hp -= dmg;
+                target.Hp -= dmg;
             }
         }
     }

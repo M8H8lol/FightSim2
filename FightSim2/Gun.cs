@@ -8,7 +8,7 @@ namespace FightSim2
         // Giving Gun its own damage values that was inherited from the values from Weapon
         public Gun()
         {
-            name = "Gun";
+            Name = "Gun";
             minDamage = 15;
             maxDamage = 20;
             minCritDamage = 20;

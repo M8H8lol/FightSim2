@@ -9,7 +9,7 @@ namespace FightSim2
 
         public Rifle()
         {
-            name = "Rifle";
+            Name = "Rifle";
             minDamage = 20;
             maxDamage = 25;
             minCritDamage = 25;

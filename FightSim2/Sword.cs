@@ -8,7 +8,7 @@ namespace FightSim2
         // Creating a sword that the fighters can use that inherits its damage values from Weapon
         public Sword()
         {
-            name = "Sword";
+            Name = "Sword";
             minDamage = 10;
             maxDamage = 15;
             minCritDamage = 25;
